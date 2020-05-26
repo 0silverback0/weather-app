@@ -1,1 +1,1 @@
-//document.write('hello from app.js');
+document.write('hello from app.js');
