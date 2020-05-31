@@ -1,4 +1,4 @@
-projectData = {};
+ const projectData = {};
 
 const express = require('express');
 
@@ -41,15 +41,17 @@ const data = [];
 app.post('/addWeather', addWeather);
 
 function addWeather(req,res){
-  console.log(req.body)
+  let newData = req.body;
   newEntry = {
-  	temperature: req.body.temperature,
-  	date: req.body.date,
-  	userResponse: req.body.userResponse
+  	temperature: newData.temperature,
+  	date: newData.date,
+  	userResponse: newData.userResponse
   }
-  data.push(newEntry)
-  res.send(projectData)
+  data.push(newEntry);
+  res.send(data);
+  console.log(newEntry.temperature);
 }
+
 
 
 
