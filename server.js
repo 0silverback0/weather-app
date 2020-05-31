@@ -41,15 +41,13 @@ const data = [];
 app.post('/addWeather', addWeather);
 
 function addWeather(req,res){
-  let newData = req.body;
-  newEntry = {
-  	temperature: newData.temperature,
-  	date: newData.date,
-  	userResponse: newData.userResponse
-  }
-  data.push(newEntry);
-  res.send(data);
-  console.log(newEntry.temperature);
+	//console.log(req.body);
+	//console.log(projectData.temperature);
+  let data = req.body;
+  projectData['temp'] = data.temperature;
+  projectData['zip'] = data.userResponse;
+  projectData['date'] = data.date;
+  //console.log(projectData);
 }
 
 
