@@ -26,7 +26,7 @@ function listening() {
 
 //get route
 
-app.get('/', getData);
+app.get('/getdata', getData);
 
 function getData(req,res){
 	res.send(projectData);
@@ -40,6 +40,7 @@ const data = [];
 
 app.post('/addWeather', addWeather);
 
+
 function addWeather(req,res){
 	//console.log(req.body);
 	//console.log(projectData.temperature);
@@ -48,6 +49,8 @@ function addWeather(req,res){
   projectData['zip'] = data.userResponse;
   projectData['date'] = data.date;
   //console.log(projectData);
+
+  res.send(projectData);
 }
 
 
