@@ -50,6 +50,7 @@ function addWeather(req,res){
   projectData['temp'] = data.temperature;
   projectData['zip'] = data.userResponse;
   projectData['date'] = data.date;
+  projectData['feelings'] = data.feelings;
   res.send(projectData);
 }
 
