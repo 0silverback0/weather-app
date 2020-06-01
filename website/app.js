@@ -12,10 +12,11 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction(e){
 	 zip = document.getElementById('zip').value;
+	 feelings = document.getElementById('feelings').value;
 
 	 getWeather(baseURL,zip,apiKey)
 		.then(function(data){
-			postData('/addWeather',{temperature: data.main.temp, date: today, userResponse: zip});
+			postData('/addWeather',{temperature: data.main.temp, date: today, userResponse: zip, feelings: feelings});
 			updateUI()
 		})
 	}
@@ -56,10 +57,11 @@ const updateUI = async () => {
   const request = await fetch('/getData');
   try{
     const allData = await request.json();
-    console.log(allData);
+    //console.log(allData);
       document.getElementById('date').innerHTML = 'Today is: ' + today;
       document.getElementById('zipCode').innerHTML = 'The zip code entered is: ' + allData.zip;
-      document.getElementById('temp').innerHTML = 'The temperature for ' + allData.zip + ' is ' + allData.temp;
+      document.getElementById('temp').innerHTML = 'The temperature for ' + allData.zip + ' is ' + allData.temp + ' degrees';
+      document.getElementById('content').innerHTML = allData.feelings;
 
   }catch(error){
     console.log("error at updateUI", error);

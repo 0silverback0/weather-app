@@ -23,6 +23,10 @@ h1{
 	margin: auto;
 }
 
-#display{
+#entryHolder{
 	margin-top:300px;
+}
+
+#feelings{
+	display: block;
 }
