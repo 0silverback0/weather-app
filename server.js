@@ -1,8 +1,10 @@
- const projectData = {};
+ // container for data
+
+ projectData = {};
+
+//get dependencies
 
 const express = require('express');
-
-const appData = {};
 
 const app = express();
 
@@ -14,6 +16,8 @@ const cors = require('cors');
 app.use(cors());
 
 app.use(express.static('website'));
+
+//create server
 
 const port = 8080;
 
@@ -42,14 +46,10 @@ app.post('/addWeather', addWeather);
 
 
 function addWeather(req,res){
-	//console.log(req.body);
-	//console.log(projectData.temperature);
   let data = req.body;
   projectData['temp'] = data.temperature;
   projectData['zip'] = data.userResponse;
   projectData['date'] = data.date;
-  //console.log(projectData);
-
   res.send(projectData);
 }
 
